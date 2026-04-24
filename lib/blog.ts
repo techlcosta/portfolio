@@ -1,7 +1,11 @@
-import { existsSync, readdirSync } from 'node:fs'
-import path from 'node:path'
 import type { ComponentType } from 'react'
 
+import EnFullStackNotes, { article as enFullStackNotesArticle } from '@/content/blog/en/full-stack-notes.mdx'
+import EnLearningNewTechnologies, { article as enLearningNewTechnologiesArticle } from '@/content/blog/en/learning-new-technologies.mdx'
+import JaFullStackNotes, { article as jaFullStackNotesArticle } from '@/content/blog/ja/full-stack-notes.mdx'
+import JaLearningNewTechnologies, { article as jaLearningNewTechnologiesArticle } from '@/content/blog/ja/learning-new-technologies.mdx'
+import PtFullStackNotes, { article as ptFullStackNotesArticle } from '@/content/blog/pt/full-stack-notes.mdx'
+import PtLearningNewTechnologies, { article as ptLearningNewTechnologiesArticle } from '@/content/blog/pt/learning-new-technologies.mdx'
 import type { Locale } from '@/i18n/config'
 import { locales } from '@/i18n/config'
 
@@ -22,31 +26,49 @@ type BlogPostModule = {
   article: BlogArticle
 }
 
-const blogContentDirectory = path.join(process.cwd(), 'content/blog')
-
-function getLocaleBlogDirectory(locale: Locale) {
-  return path.join(blogContentDirectory, locale)
+const blogPostModules: Record<Locale, Record<string, BlogPostModule>> = {
+  en: {
+    'full-stack-notes': {
+      default: EnFullStackNotes,
+      article: enFullStackNotesArticle
+    },
+    'learning-new-technologies': {
+      default: EnLearningNewTechnologies,
+      article: enLearningNewTechnologiesArticle
+    }
+  },
+  ja: {
+    'full-stack-notes': {
+      default: JaFullStackNotes,
+      article: jaFullStackNotesArticle
+    },
+    'learning-new-technologies': {
+      default: JaLearningNewTechnologies,
+      article: jaLearningNewTechnologiesArticle
+    }
+  },
+  pt: {
+    'full-stack-notes': {
+      default: PtFullStackNotes,
+      article: ptFullStackNotesArticle
+    },
+    'learning-new-technologies': {
+      default: PtLearningNewTechnologies,
+      article: ptLearningNewTechnologiesArticle
+    }
+  }
 }
 
 function getLocaleArticleSlugs(locale: Locale) {
-  const directory = getLocaleBlogDirectory(locale)
-
-  if (!existsSync(directory)) {
-    return []
-  }
-
-  return readdirSync(directory)
-    .filter((file) => file.endsWith('.mdx'))
-    .map((file) => file.replace(/\.mdx$/, ''))
-    .sort((firstSlug, secondSlug) => firstSlug.localeCompare(secondSlug))
+  return Object.keys(blogPostModules[locale]).sort((firstSlug, secondSlug) => firstSlug.localeCompare(secondSlug))
 }
 
 export async function getBlogPost(locale: Locale, slug: string) {
-  if (!getLocaleArticleSlugs(locale).includes(slug)) {
+  const post = blogPostModules[locale][slug]
+
+  if (!post) {
     return null
   }
-
-  const post = (await import(`@/content/blog/${locale}/${slug}.mdx`)) as BlogPostModule
 
   return {
     ...post.article,

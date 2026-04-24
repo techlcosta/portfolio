@@ -2,9 +2,10 @@
 
 import { Locale } from '@/i18n/config'
 import { cn } from '@/lib/utils'
-import { BrainCogIcon, Code2Icon, HomeIcon, RssIcon } from 'lucide-react'
+import { BrainCogIcon, Code2Icon, GlobeIcon, HomeIcon, RssIcon } from 'lucide-react'
 import Link from 'next/link'
-import { ComponentType, SVGProps, useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
+import type { ComponentType, SVGProps } from 'react'
 import { GitHubIcon } from '../public/icons/social/github-icon'
 import { InstagramIcon } from '../public/icons/social/instagram-icon'
 import { LinkedinIcon } from '../public/icons/social/linkedin-icon'
@@ -138,6 +139,14 @@ function ScrollNavigation({ label, targetId, icon: Icon, iconClassName }: Scroll
   )
 }
 
+function LocaleToggleFallback({ label }: { label: string }) {
+  return (
+    <Button variant="ghost" size="icon" className={NAVIGATION_BUTTON_CLASSNAME} disabled aria-label={label}>
+      <GlobeIcon className={NAVIGATION_ICON_CLASSNAME} />
+    </Button>
+  )
+}
+
 export function MenuNavigation({ currentLocale, labels, localeNames }: MenuNavigationProps) {
   const isCompact = useCompactNavigation()
 
@@ -197,13 +206,15 @@ export function MenuNavigation({ currentLocale, labels, localeNames }: MenuNavig
         <Separator orientation="vertical" className="h-6 sm:h-full" />
 
         <DockIcon>
-          <LocaleToggle
-            currentLocale={currentLocale}
-            label={labels.locale}
-            names={localeNames}
-            triggerClassName={NAVIGATION_BUTTON_CLASSNAME}
-            iconClassName={NAVIGATION_ICON_CLASSNAME}
-          />
+          <Suspense fallback={<LocaleToggleFallback label={labels.locale} />}>
+            <LocaleToggle
+              currentLocale={currentLocale}
+              label={labels.locale}
+              names={localeNames}
+              triggerClassName={NAVIGATION_BUTTON_CLASSNAME}
+              iconClassName={NAVIGATION_ICON_CLASSNAME}
+            />
+          </Suspense>
         </DockIcon>
       </Dock>
     </TooltipProvider>
