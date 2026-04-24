@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Mantis Tobaggan ポートフォリオ",
+    "description": "英語、ポルトガル語、日本語に対応した、ダークでエディトリアルなランディングページです。"
+  },
+  "header": {
+    "navigation": {
+      "home": "ホーム",
+      "blog": "ブログ",
+      "projects": "プロジェクト",
+      "skills": "スキル",
+      "portfolio": "ポートフォリオ",
+      "about": "私について",
+      "contact": "お問い合わせ"
+    },
+    "social": {
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "x": "X（旧Twitter）",
+      "twitter": "Twitter",
+      "tiktok": "TikTok",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "hero": {
+    "greeting": "こんにちは",
+    "name": "ダコスタ レアンドロ",
+    "role": "フリーランスWeb開発者",
+    "location": "日本を拠点に活動",
+    "imageAlt": "日本を拠点に活動するフリーランスWeb開発者、ダコスタ レアンドロのプロフィール写真"
+  },
+  "skills": {
+    "title": "Skills",
+    "headline": "一貫したソリューションをつくるフルスタック開発者",
+    "description": "フロントエンドからバックエンドまで一貫してプロダクトを構築するフルスタック開発者として、React、Next.js、Node.js、Python、MQL5 を中心に開発しています。金融市場は個人的な関心や趣味のひとつで、MetaTrader や TradingView に関わる開発にも親しみがあります。また、新しい技術を学ぶことが好きで、より信頼性が高く、モダンで、構造の整ったソリューションをつくるために常に学び続けています。",
+    "highlights": [
+      "React、Next.js、Tailwind、TypeScript を活かしたモダンなフロントエンド",
+      "Node.js、Python、MQL5、MetaTrader、TradingView を活かしたバックエンド・API・自動化・リアルタイム連携",
+      "金融市場とテクノロジーをつなぐ開発を、性能・品質・信頼性を重視して実装"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "headline": "UI、バックエンド、自動化をつなぐソリューション",
+    "description": "丁寧な体験、整理されたAPI、実際の課題を解決するための連携を大切にしながら作っているプロジェクト例です。",
+    "items": [
+      {
+        "title": "Yui-Ki",
+        "description": "多言語コンテンツ、オンライン決済、自動コミュニケーションに対応した、デジタル招待状やパーソナルな体験を作成できるWebプラットフォームです。",
+        "preview": "/icons/yui-ki.svg",
+        "status": "個人プロジェクト",
+        "actionTitle": "プロジェクトを開く",
+        "action": "https://yui-ki.com/ja",
+        "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl", "Stripe", "Firebase", "OpenAI", "Resend", "Zod"]
+      }
+    ]
+  },
+  "blog": {
+    "backToPortfolio": "ポートフォリオへ戻る",
+    "backToBlog": "ブログへ戻る",
+    "eyebrow": "ブログ",
+    "title": "記事と技術ノート",
+    "description": "学び、実験、技術的な判断を記録する場所です。",
+    "empty": "公開済みの記事はまだありません。"
+  },
+  "languages": {
+    "label": "言語",
+    "available": {
+      "en": "英語",
+      "pt": "ポルトガル語",
+      "ja": "日本語"
+    }
+  }
+}

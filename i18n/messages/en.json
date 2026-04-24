@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Mantis Tobaggan Portfolio",
+    "description": "A dark editorial landing page with internationalized routing for English, Portuguese, and Japanese."
+  },
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "blog": "Blog",
+      "projects": "Projects",
+      "skills": "Skills",
+      "portfolio": "Portfolio",
+      "about": "About Me",
+      "contact": "Get In Touch"
+    },
+    "social": {
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "x": "X (formerly Twitter)",
+      "twitter": "Twitter",
+      "tiktok": "TikTok",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "hero": {
+    "greeting": "Hello",
+    "name": "Leandro Costa",
+    "role": "Full Stack Web Developer",
+    "location": "Based In Japan",
+    "imageAlt": "Portrait photo of Leandro Costa, freelance web developer based in the Japan"
+  },
+  "skills": {
+    "title": "Skills",
+    "headline": "Full Stack Developer focused on complete solutions",
+    "description": "I work as a full stack developer building end-to-end products across frontend and backend, with experience in React, Next.js, Node.js, Python, and MQL5. Financial markets are part of my personal interests and hobbies, especially in projects involving MetaTrader and TradingView, and I am always studying new technologies to keep improving how I build reliable, modern, and well-structured solutions.",
+    "highlights": [
+      "Modern frontend with React, Next.js, Tailwind, and the TypeScript ecosystem",
+      "Backends, APIs, automation, and real-time integrations with Node.js, Python, MQL5, MetaTrader, and TradingView",
+      "Projects that connect technology and financial markets with a focus on performance, testing, and reliability"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "headline": "Solutions that connect interface, backend, and automation",
+    "description": "A few project examples that reflect how I like to build: polished experiences, organized APIs, and integrations designed to solve real problems.",
+    "items": [
+      {
+        "title": "Yui-Ki",
+        "description": "Web platform for creating personalized digital invitations and experiences, with multilingual content, online payments, and automated communication.",
+        "preview": "/icons/yui-ki.svg",
+        "status": "Personal project",
+        "actionTitle": "Open project",
+        "action": "https://yui-ki.com/en",
+        "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl", "Stripe", "Firebase", "OpenAI", "Resend", "Zod"]
+      }
+    ]
+  },
+  "blog": {
+    "backToPortfolio": "Back to portfolio",
+    "backToBlog": "Back to blog",
+    "eyebrow": "Blog",
+    "title": "Articles and technical notes",
+    "description": "A space to document learnings, experiments, and technical decisions.",
+    "empty": "No articles published yet."
+  },
+  "languages": {
+    "label": "Languages",
+    "available": {
+      "en": "English",
+      "pt": "Portuguese",
+      "ja": "Japanese"
+    }
+  }
+}
