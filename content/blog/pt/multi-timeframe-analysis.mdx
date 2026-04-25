@@ -1,0 +1,72 @@
+export const article = {
+  title: 'Criando um dashboard desktop para análise multi-timeframe',
+  description: 'Como nasceu o Multi Timeframe Analysis, um dashboard desktop para organizar a visualização de dados do MetaTrader 5 usando Python, React e pywebview.',
+  category: 'Trading Tools',
+  publishedAt: '2026-04-26'
+}
+
+# Criando um dashboard desktop para análise multi-timeframe com MetaTrader 5, Python e React
+
+O Multi Timeframe Analysis nasceu para uso pessoal.
+
+Eu queria uma forma mais confortável de acompanhar o mercado em diferentes timeframes sem precisar alternar entre várias janelas, gráficos e anotações. No meu fluxo de análise, olhar apenas um período não é suficiente. O contexto muda bastante quando comparo M1, M5, M15 e M30.
+
+A ideia foi criar um dashboard desktop para Windows conectado diretamente ao MetaTrader 5 instalado na máquina. O projeto usa Python para lidar com os dados e React para montar uma interface mais organizada, feita para melhorar a visualização durante a análise.
+
+No repositório, a aplicação aparece com o nome FX Strategies. A proposta é simples: reunir vários símbolos em um único espaço de trabalho e mostrar uma leitura compacta dos timeframes curtos, sem depender de uma sequência de abas abertas no terminal.
+
+![Dashboard do Multi Timeframe Analysis](/projects/multi-timeframe-analysis.webp)
+
+## Por que criei esse projeto
+
+O objetivo inicial não era criar um produto comercial. Era resolver uma necessidade minha.
+
+Eu queria estudar melhor como juntar análise de mercado, dados do MetaTrader 5 e uma interface própria. Também queria sair um pouco da experiência padrão do terminal e experimentar um fluxo mais adaptado ao meu jeito de acompanhar o mercado.
+
+Esse tipo de projeto me interessa porque mistura várias partes que gosto de desenvolver: integração com sistemas externos, automação, leitura de dados, interface e organização de informação.
+
+## Como funciona
+
+A aplicação conversa diretamente com o MetaTrader 5 instalado no Windows. A partir daí, o Python fica responsável por buscar os dados e preparar as informações para a interface.
+
+No frontend, usei React com TypeScript para construir o dashboard. A interface roda como uma aplicação desktop usando pywebview, então a experiência fica mais próxima de um app instalado do que de uma página aberta no navegador. A comunicação entre os dois lados passa pela ponte de API do pywebview: o Python organiza os dados e o React consome essas informações para montar a tela.
+
+Um dos pontos mais interessantes foi justamente esse: criar algo parecido com uma experiência de Electron, mas com backend em Python. Eu ainda não conhecia bem o pywebview, então o projeto também serviu para entender melhor como conectar uma interface web moderna com uma camada Python rodando localmente.
+
+Também usei SQLite para persistência local. Para esse tipo de aplicação, fazia mais sentido manter tudo na própria máquina, sem depender de um servidor externo. Os símbolos selecionados ficam salvos localmente, o que ajuda a reabrir a ferramenta e continuar a análise sem começar do zero.
+
+## O que entrou na primeira versão
+
+A primeira versão já traz alguns pontos importantes para o fluxo de uso: acompanhamento de múltiplos ativos, visualização dos timeframes M1, M5, M15 e M30, cards com resumos por timeframe e suporte a tema claro e escuro.
+
+Mesmo que os indicadores e cálculos ainda devam evoluir, essa base já resolve a parte que eu mais queria validar: transformar dados vindos do MetaTrader 5 em uma área de trabalho mais organizada, com leitura rápida e uma interface que não pareça improvisada.
+
+## Tecnologias usadas
+
+O backend foi feito em Python, com integração ao MetaTrader 5. A interface usa React, TypeScript, Vite, Tailwind CSS e TanStack Query. Para a parte desktop, usei pywebview, e para gerar o executável no Windows, PyInstaller.
+
+A escolha dessas tecnologias veio do próprio problema. Python facilita bastante a parte de dados e integração com o MetaTrader. React ajuda a construir uma interface mais flexível. SQLite resolve bem a persistência local sem adicionar complexidade desnecessária.
+
+## O que aprendi
+
+Esse projeto me mostrou que o desafio não está só em buscar dados ou montar uma tela. A parte mais importante é fazer as peças conversarem bem.
+
+Quando uma aplicação depende do MetaTrader 5, de um backend em Python, de persistência local e de uma interface em React, qualquer detalhe mal resolvido aparece rápido. O fluxo de dados precisa ser claro. A interface precisa responder bem. E a estrutura precisa permitir mudanças sem virar uma bagunça.
+
+Também foi um bom exercício de UI/UX. Em análise de mercado, informação demais pode atrapalhar. O valor está em organizar o que importa para que a leitura fique mais rápida, sem transformar a tela em um painel confuso.
+
+## Próximos passos
+
+Ainda vejo bastante espaço para evoluir o Multi Timeframe Analysis.
+
+Um dos próximos passos é permitir configurar os parâmetros dos indicadores pela própria interface, para que os cálculos sejam mais dinâmicos. Isso deixaria a ferramenta mais flexível para diferentes formas de análise.
+
+Também quero adicionar cálculo de correlação entre pares de moedas. A primeira ideia é validar essa lógica de forma mais controlada e, depois, permitir escolher os pares diretamente pela interface.
+
+Mais adiante, o objetivo é criar robôs de automação de operações de trade baseados em correlações entre pares e confluências de indicadores. Essa parte ainda exige cuidado, testes e validação, mas é uma direção natural para o projeto.
+
+## Código do projeto
+
+O projeto está disponível no GitHub:
+
+[github.com/techlcosta/Multi-Timeframe_Analysis](https://github.com/techlcosta/Multi-Timeframe_Analysis)

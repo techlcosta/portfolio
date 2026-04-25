@@ -1,11 +1,8 @@
 import type { ComponentType } from 'react'
 
-import EnFullStackNotes, { article as enFullStackNotesArticle } from '@/content/blog/en/full-stack-notes.mdx'
-import EnLearningNewTechnologies, { article as enLearningNewTechnologiesArticle } from '@/content/blog/en/learning-new-technologies.mdx'
-import JaFullStackNotes, { article as jaFullStackNotesArticle } from '@/content/blog/ja/full-stack-notes.mdx'
-import JaLearningNewTechnologies, { article as jaLearningNewTechnologiesArticle } from '@/content/blog/ja/learning-new-technologies.mdx'
-import PtFullStackNotes, { article as ptFullStackNotesArticle } from '@/content/blog/pt/full-stack-notes.mdx'
-import PtLearningNewTechnologies, { article as ptLearningNewTechnologiesArticle } from '@/content/blog/pt/learning-new-technologies.mdx'
+import EnMultiTimeframeAnalysis, { article as enMultiTimeframeAnalysisArticle } from '@/content/blog/en/multi-timeframe-analysis.mdx'
+import JaMultiTimeframeAnalysis, { article as jaMultiTimeframeAnalysisArticle } from '@/content/blog/ja/multi-timeframe-analysis.mdx'
+import PtMultiTimeframeAnalysis, { article as ptMultiTimeframeAnalysisArticle } from '@/content/blog/pt/multi-timeframe-analysis.mdx'
 import type { Locale } from '@/i18n/config'
 import { locales } from '@/i18n/config'
 
@@ -14,7 +11,6 @@ export type BlogArticle = {
   description: string
   category: string
   publishedAt: string
-  readTime: string
 }
 
 export type BlogPost = BlogArticle & {
@@ -28,33 +24,21 @@ type BlogPostModule = {
 
 const blogPostModules: Record<Locale, Record<string, BlogPostModule>> = {
   en: {
-    'full-stack-notes': {
-      default: EnFullStackNotes,
-      article: enFullStackNotesArticle
-    },
-    'learning-new-technologies': {
-      default: EnLearningNewTechnologies,
-      article: enLearningNewTechnologiesArticle
+    'multi-timeframe-analysis': {
+      default: EnMultiTimeframeAnalysis,
+      article: enMultiTimeframeAnalysisArticle
     }
   },
   ja: {
-    'full-stack-notes': {
-      default: JaFullStackNotes,
-      article: jaFullStackNotesArticle
-    },
-    'learning-new-technologies': {
-      default: JaLearningNewTechnologies,
-      article: jaLearningNewTechnologiesArticle
+    'multi-timeframe-analysis': {
+      default: JaMultiTimeframeAnalysis,
+      article: jaMultiTimeframeAnalysisArticle
     }
   },
   pt: {
-    'full-stack-notes': {
-      default: PtFullStackNotes,
-      article: ptFullStackNotesArticle
-    },
-    'learning-new-technologies': {
-      default: PtLearningNewTechnologies,
-      article: ptLearningNewTechnologiesArticle
+    'multi-timeframe-analysis': {
+      default: PtMultiTimeframeAnalysis,
+      article: ptMultiTimeframeAnalysisArticle
     }
   }
 }
@@ -91,8 +75,7 @@ export async function getBlogPosts(locale: Locale): Promise<BlogPost[]> {
         title: post.title,
         description: post.description,
         category: post.category,
-        publishedAt: post.publishedAt,
-        readTime: post.readTime
+        publishedAt: post.publishedAt
       }
     })
   )

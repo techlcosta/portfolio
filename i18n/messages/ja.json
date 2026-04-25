@@ -55,9 +55,9 @@
         "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl", "Stripe", "Firebase", "OpenAI", "Resend", "Zod"]
       },
       {
-        "title": "FX Strategies",
+        "title": "Multi Timeframe Analysis",
         "description": "MetaTrader 5 のデータ、Python 製インジケーター、ローカル保存、React UI を組み合わせた、Windows 向けのマルチタイムフレーム市場分析デスクトップダッシュボードです。",
-        "preview": "/projects/Multi-Timeframe_Analysis.png",
+        "preview": "/projects/multi-timeframe-analysis.webp",
         "actionTitle": "GitHubで開く",
         "action": "https://github.com/techlcosta/Multi-Timeframe_Analysis",
         "stack": ["Python 3.12", "MetaTrader 5", "pywebview", "React 19", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "SQLite", "PyInstaller"]
@@ -70,7 +70,13 @@
     "eyebrow": "ブログ",
     "title": "記事と技術ノート",
     "description": "学び、実験、技術的な判断を記録する場所です。",
-    "empty": "公開済みの記事はまだありません。"
+    "empty": "公開済みの記事はまだありません。",
+    "latest": {
+      "title": "ブログ",
+      "headline": "最新の記事",
+      "description": "開発中のプロジェクト、技術的な判断、学んだことを記録しています。",
+      "viewAll": "すべて見る"
+    }
   },
   "languages": {
     "label": "言語",

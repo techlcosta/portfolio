@@ -55,9 +55,9 @@
         "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl", "Stripe", "Firebase", "OpenAI", "Resend", "Zod"]
       },
       {
-        "title": "FX Strategies",
+        "title": "Multi Timeframe Analysis",
         "description": "Windows-focused desktop dashboard for multi-timeframe market analysis, combining MetaTrader 5 data, Python indicators, local persistence, and a React interface with dark and light themes.",
-        "preview": "/projects/Multi-Timeframe_Analysis.png",
+        "preview": "/projects/multi-timeframe-analysis.webp",
         "actionTitle": "Open on GitHub",
         "action": "https://github.com/techlcosta/Multi-Timeframe_Analysis",
         "stack": ["Python 3.12", "MetaTrader 5", "pywebview", "React 19", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "SQLite", "PyInstaller"]
@@ -70,7 +70,13 @@
     "eyebrow": "Blog",
     "title": "Articles and technical notes",
     "description": "A space to document learnings, experiments, and technical decisions.",
-    "empty": "No articles published yet."
+    "empty": "No articles published yet.",
+    "latest": {
+      "title": "Blog",
+      "headline": "Latest articles",
+      "description": "Notes about projects, technical choices, and lessons learned while building.",
+      "viewAll": "View all"
+    }
   },
   "languages": {
     "label": "Languages",

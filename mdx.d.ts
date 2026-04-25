@@ -6,7 +6,6 @@ declare module '*.mdx' {
     description: string
     category: string
     publishedAt: string
-    readTime: string
   }
 
   const MDXContent: ComponentType

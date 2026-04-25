@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { ArrowLeftIcon } from 'lucide-react'
+import Link from 'next/link'
 
 import type { Locale } from '@/i18n/config'
 
@@ -18,9 +18,9 @@ export function BlogPageShell({ backHref, backLabel, children, description, eyeb
       <div className="mb-10 space-y-5 border-b border-white/10 pb-10">
         <Link
           href={backHref}
-          className="group/back inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-medium text-white/72 shadow-[0_16px_40px_-28px_rgba(39,223,183,0.7)] transition-all hover:border-primary/40 hover:bg-white/[0.07] hover:text-white focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/25 focus-visible:outline-none"
+          className="group/back hover:border-primary/40 focus-visible:border-primary focus-visible:ring-primary/25 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/4 px-3 py-2 text-sm font-medium text-white/72 shadow-[0_16px_40px_-28px_rgba(39,223,183,0.7)] transition-all hover:bg-white/[0.07] hover:text-white focus-visible:ring-3 focus-visible:outline-none"
         >
-          <ArrowLeftIcon className="size-4 text-primary transition-transform group-hover/back:-translate-x-0.5" aria-hidden="true" />
+          <ArrowLeftIcon className="text-primary size-4 transition-transform group-hover/back:-translate-x-0.5" aria-hidden="true" />
           {backLabel}
         </Link>
 

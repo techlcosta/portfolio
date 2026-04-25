@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation'
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
 import { JsonLd } from '@/components/json-ld'
+import { LatestPosts } from '@/components/latest-posts'
 import { Projects } from '@/components/projects'
 import { Skills } from '@/components/skills'
 import { hasLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { getBlogPosts } from '@/lib/blog'
 import { absoluteUrl, personId, siteName, siteUrl, socialProfiles, websiteId } from '@/lib/seo'
 
 type LangPageProps = Readonly<{
@@ -20,7 +22,7 @@ export default async function HomePage({ params }: LangPageProps) {
     notFound()
   }
 
-  const dict = await getDictionary(lang)
+  const [dict, latestPosts] = await Promise.all([getDictionary(lang), getBlogPosts(lang)])
   const pageUrl = absoluteUrl(`/${lang}`)
   const structuredData = {
     '@context': 'https://schema.org',
@@ -71,6 +73,7 @@ export default async function HomePage({ params }: LangPageProps) {
         <Hero locale={lang} greeting={dict.hero.greeting} name={dict.hero.name} role={dict.hero.role} imageAlt={dict.hero.imageAlt} />
         <Skills content={dict.skills} />
         <Projects content={dict.projects} />
+        <LatestPosts content={dict.blog.latest} locale={lang} posts={latestPosts.slice(0, 4)} />
       </section>
     </main>
   )

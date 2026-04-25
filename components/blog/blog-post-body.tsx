@@ -4,7 +4,7 @@ type BlogPostBodyProps = {
 
 export function BlogPostBody({ children }: BlogPostBodyProps) {
   return (
-    <article className="max-w-none text-white/76 [&_a]:text-primary [&_a]:underline-offset-4 [&_a:hover]:underline [&_h1]:hidden [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-white [&_li]:my-2 [&_li]:leading-8 [&_p]:my-5 [&_p]:text-base [&_p]:leading-8 [&_strong]:text-white [&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6">
+    <article className="max-w-none text-white/76 [&_a]:text-primary [&_a]:underline-offset-4 [&_a:hover]:underline [&_h1]:hidden [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-white [&_img]:my-8 [&_img]:rounded-2xl [&_img]:border [&_img]:border-white/10 [&_img]:bg-white/4 [&_img]:shadow-[0_24px_80px_-48px_rgba(39,223,183,0.45)] [&_li]:my-2 [&_li]:leading-8 [&_p]:my-5 [&_p]:text-base [&_p]:leading-8 [&_strong]:text-white [&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6">
       {children}
     </article>
   )
