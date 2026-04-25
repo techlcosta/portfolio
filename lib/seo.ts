@@ -4,9 +4,9 @@ export const siteUrl = 'https://www.techlcosta.dev'
 export const siteName = 'Leandro Costa'
 
 export const ogImage = {
-  url: '/og-image.png',
-  width: 1731,
-  height: 909,
+  url: '/og-image.jpg',
+  width: 1200,
+  height: 630,
   alt: 'Leandro Costa, Full Stack Web Developer'
 }
 
