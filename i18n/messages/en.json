@@ -43,20 +43,29 @@
     "title": "Projects",
     "headline": "Solutions that connect interface, backend, and automation",
     "description": "A few project examples that reflect how I like to build: polished experiences, organized APIs, and integrations designed to solve real problems.",
+    "readMore": "Continue reading",
+    "readLess": "Show less",
     "items": [
       {
         "title": "Yui-Ki",
         "description": "Web platform for creating personalized digital invitations and experiences, with multilingual content, online payments, and automated communication.",
         "preview": "/icons/yui-ki.svg",
-        "status": "Personal project",
         "actionTitle": "Open project",
         "action": "https://yui-ki.com/en",
         "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl", "Stripe", "Firebase", "OpenAI", "Resend", "Zod"]
+      },
+      {
+        "title": "FX Strategies",
+        "description": "Windows-focused desktop dashboard for multi-timeframe market analysis, combining MetaTrader 5 data, Python indicators, local persistence, and a React interface with dark and light themes.",
+        "preview": "/projects/Multi-Timeframe_Analysis.png",
+        "actionTitle": "Open on GitHub",
+        "action": "https://github.com/techlcosta/Multi-Timeframe_Analysis",
+        "stack": ["Python 3.12", "MetaTrader 5", "pywebview", "React 19", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "SQLite", "PyInstaller"]
       }
     ]
   },
   "blog": {
-    "backToPortfolio": "Back to portfolio",
+    "backToPortfolio": "Back to home",
     "backToBlog": "Back to blog",
     "eyebrow": "Blog",
     "title": "Articles and technical notes",

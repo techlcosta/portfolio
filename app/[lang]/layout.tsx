@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
@@ -22,6 +22,11 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin']
 })
+
+export const viewport: Viewport = {
+  themeColor: '#02040b',
+  colorScheme: 'dark'
+}
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }))
@@ -50,8 +55,8 @@ export default async function RootLayout({ children, params }: LangLayoutProps) 
   }
 
   return (
-    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body>{children}</body>
+    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full bg-[#02040b] antialiased`}>
+      <body className="min-h-dvh bg-[#02040b] text-white">{children}</body>
     </html>
   )
 }

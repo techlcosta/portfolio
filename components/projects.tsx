@@ -4,7 +4,6 @@ type Project = {
   title: string
   description: string
   preview: string
-  status: string
   actionTitle?: string
   action?: string
   stack: string[]
@@ -15,6 +14,8 @@ type ProjectsProps = {
     title: string
     headline: string
     description: string
+    readMore: string
+    readLess: string
     items: Project[]
   }
 }
@@ -38,8 +39,9 @@ export function Projects({ content }: ProjectsProps) {
             actionTitle={project.actionTitle}
             description={project.description}
             preview={project.preview}
+            readLessLabel={content.readLess}
+            readMoreLabel={content.readMore}
             stack={project.stack}
-            status={project.status}
             title={project.title}
           />
         ))}

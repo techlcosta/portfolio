@@ -4,6 +4,7 @@ import { Locale } from '@/i18n/config'
 import { cn } from '@/lib/utils'
 import { BrainCogIcon, Code2Icon, GlobeIcon, HomeIcon, RssIcon } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
 import type { ComponentType, SVGProps } from 'react'
 import { GitHubIcon } from '../public/icons/social/github-icon'
@@ -149,6 +150,8 @@ function LocaleToggleFallback({ label }: { label: string }) {
 
 export function MenuNavigation({ currentLocale, labels, localeNames }: MenuNavigationProps) {
   const isCompact = useCompactNavigation()
+  const pathname = usePathname()
+  const isHomeRoute = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`
 
   return (
     <TooltipProvider>
@@ -164,13 +167,17 @@ export function MenuNavigation({ currentLocale, labels, localeNames }: MenuNavig
           <RouteNavigation path={`/${currentLocale}`} label={labels.home} icon={HomeIcon} />
         </DockIcon>
 
-        <DockIcon>
-          <ScrollNavigation label={labels.skills} targetId="skills" icon={BrainCogIcon} />
-        </DockIcon>
+        {isHomeRoute ? (
+          <>
+            <DockIcon>
+              <ScrollNavigation label={labels.skills} targetId="skills" icon={BrainCogIcon} />
+            </DockIcon>
 
-        <DockIcon>
-          <ScrollNavigation label={labels.projects} targetId="projects" icon={Code2Icon} />
-        </DockIcon>
+            <DockIcon>
+              <ScrollNavigation label={labels.projects} targetId="projects" icon={Code2Icon} />
+            </DockIcon>
+          </>
+        ) : null}
 
         <DockIcon>
           <RouteNavigation path={`/${currentLocale}/blog`} label={labels.blog} icon={RssIcon} />

@@ -43,20 +43,29 @@
     "title": "Projects",
     "headline": "UI、バックエンド、自動化をつなぐソリューション",
     "description": "丁寧な体験、整理されたAPI、実際の課題を解決するための連携を大切にしながら作っているプロジェクト例です。",
+    "readMore": "続きを読む",
+    "readLess": "閉じる",
     "items": [
       {
         "title": "Yui-Ki",
         "description": "多言語コンテンツ、オンライン決済、自動コミュニケーションに対応した、デジタル招待状やパーソナルな体験を作成できるWebプラットフォームです。",
         "preview": "/icons/yui-ki.svg",
-        "status": "個人プロジェクト",
         "actionTitle": "プロジェクトを開く",
         "action": "https://yui-ki.com/ja",
         "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl", "Stripe", "Firebase", "OpenAI", "Resend", "Zod"]
+      },
+      {
+        "title": "FX Strategies",
+        "description": "MetaTrader 5 のデータ、Python 製インジケーター、ローカル保存、React UI を組み合わせた、Windows 向けのマルチタイムフレーム市場分析デスクトップダッシュボードです。",
+        "preview": "/projects/Multi-Timeframe_Analysis.png",
+        "actionTitle": "GitHubで開く",
+        "action": "https://github.com/techlcosta/Multi-Timeframe_Analysis",
+        "stack": ["Python 3.12", "MetaTrader 5", "pywebview", "React 19", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "SQLite", "PyInstaller"]
       }
     ]
   },
   "blog": {
-    "backToPortfolio": "ポートフォリオへ戻る",
+    "backToPortfolio": "ホームへ戻る",
     "backToBlog": "ブログへ戻る",
     "eyebrow": "ブログ",
     "title": "記事と技術ノート",
