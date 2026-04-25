@@ -33,6 +33,7 @@ export function Header({ currentLocale, navigation, social, languages }: HeaderP
     projects: navigation.projects,
     skills: navigation.skills,
     github: social.github,
+    instagram: social.instagram,
     linkedin: social.linkedin,
     tiktok: social.tiktok,
     x: social.x,

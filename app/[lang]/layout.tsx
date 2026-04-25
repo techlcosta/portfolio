@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
+import { Footer } from '@/components/footer'
 import { hasLocale, locales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { languageAlternates, ogImage, openGraphLocales, siteName, siteUrl } from '@/lib/seo'
@@ -78,9 +79,14 @@ export default async function RootLayout({ children, params }: LangLayoutProps) 
     notFound()
   }
 
+  const dict = await getDictionary(lang)
+
   return (
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full bg-[#02040b] antialiased`}>
-      <body className="min-h-dvh bg-[#02040b] text-white">{children}</body>
+      <body className="min-h-dvh bg-[#02040b] text-white">
+        {children}
+        <Footer currentLocale={lang} navigation={dict.header.navigation} social={dict.header.social} tagline={dict.footer.tagline} />
+      </body>
     </html>
   )
 }

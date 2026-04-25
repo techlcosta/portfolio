@@ -78,6 +78,9 @@
       "viewAll": "すべて見る"
     }
   },
+  "footer": {
+    "tagline": "日本を拠点に、Webアプリ、API、自動化、金融市場向けツールを開発するフルスタックWeb開発者です。"
+  },
   "languages": {
     "label": "言語",
     "available": {

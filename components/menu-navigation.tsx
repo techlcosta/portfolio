@@ -45,6 +45,7 @@ interface MenuNavigationLabels {
   projects: string
   skills: string
   github: string
+  instagram: string
   linkedin: string
   tiktok: string
   x: string
@@ -196,7 +197,7 @@ export function MenuNavigation({ currentLocale, labels, localeNames }: MenuNavig
         <DockIcon>
           <ExternalNavigation
             path="https://www.instagram.com/techleandrocosta/"
-            label={labels.linkedin}
+            label={labels.instagram}
             icon={InstagramIcon}
             iconClassName={SOCIAL_ICON_CLASSNAME}
           />

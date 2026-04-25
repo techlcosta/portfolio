@@ -78,6 +78,9 @@
       "viewAll": "Ver todos"
     }
   },
+  "footer": {
+    "tagline": "Desenvolvedor Full Stack baseado no Japão, criando aplicações web, APIs, automações e ferramentas para mercado financeiro."
+  },
   "languages": {
     "label": "Idiomas",
     "available": {

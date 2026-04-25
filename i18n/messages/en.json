@@ -78,6 +78,9 @@
       "viewAll": "View all"
     }
   },
+  "footer": {
+    "tagline": "Full Stack Web Developer based in Japan, building web applications, APIs, automation, and financial market tools."
+  },
   "languages": {
     "label": "Languages",
     "available": {
