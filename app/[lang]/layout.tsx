@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { hasLocale, locales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { languageAlternates, ogImage, openGraphLocales, siteName, siteUrl } from '@/lib/seo'
 import '../globals.css'
 
 type LangParams = Promise<{ lang: string }>
@@ -40,10 +41,33 @@ export async function generateMetadata({ params }: Pick<LangLayoutProps, 'params
   }
 
   const dict = await getDictionary(lang)
+  const pathname = `/${lang}`
+  const url = new URL(pathname, siteUrl)
 
   return {
+    metadataBase: new URL(siteUrl),
     title: dict.meta.title,
-    description: dict.meta.description
+    description: dict.meta.description,
+    alternates: {
+      canonical: pathname,
+      languages: languageAlternates((locale) => `/${locale}`)
+    },
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      url,
+      siteName,
+      locale: openGraphLocales[lang],
+      alternateLocale: locales.filter((locale) => locale !== lang).map((locale) => openGraphLocales[locale]),
+      type: 'website',
+      images: [ogImage]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [ogImage.url]
+    }
   }
 }
 
