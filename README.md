@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <a href="https://www.techlcosta.dev/pt">
+    <img src="./public/readme/hero.png" alt="Hero do portfólio TechLCosta" width="900" />
+  </a>
+</p>
 
-## Getting Started
+<h1 align="center">TechLCosta.dev</h1>
 
-First, run the development server:
+<p align="center">
+  Portfólio multilíngue de <strong>Leandro Costa</strong>, desenvolvedor Full Stack baseado no Japão.
+</p>
+
+<p align="center">
+  <a href="https://www.techlcosta.dev/pt">Deploy</a>
+  ·
+  <a href="https://www.techlcosta.dev/pt/blog">Blog</a>
+  ·
+  <a href="https://github.com/techlcosta">GitHub</a>
+  ·
+  <a href="https://www.linkedin.com/in/techlcosta">LinkedIn</a>
+</p>
+
+<p align="center">
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-16.2.4-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img alt="React" src="https://img.shields.io/badge/React-19.2.4-149ECA?style=for-the-badge&logo=react&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+</p>
+
+## Sobre
+
+Este projeto é a landing page pessoal da TechLCosta: uma experiência editorial escura, responsiva e internacionalizada para apresentar perfil, skills, projetos e artigos técnicos.
+
+O site combina App Router, MDX, animações sutis, dock de navegação e uma nuvem 3D de tecnologias para criar um portfólio com presença visual sem perder performance e simplicidade de manutenção.
+
+## Destaques
+
+- Rotas em português, inglês e japonês com redirecionamento por idioma.
+- Blog técnico com conteúdo em MDX e páginas estáticas por locale.
+- Hero com imagem otimizada via `next/image` e microdados de pessoa.
+- Seção de skills baseada em ícones SVG locais e visualização interativa.
+- Cards de projetos com stack, preview e links externos.
+- UI com Radix, Lucide, Tailwind CSS 4 e componentes reutilizáveis.
+
+## Stack
+
+| Camada | Tecnologias |
+| --- | --- |
+| Framework | Next.js 16, React 19, App Router |
+| Linguagem | TypeScript |
+| Estilo | Tailwind CSS 4, tw-animate-css, tailwind-merge |
+| Conteúdo | MDX, mensagens i18n em JSON |
+| UI | Radix UI, Lucide React, shadcn-style components |
+| Movimento | Motion |
+| Qualidade | ESLint, Prettier, eslint-config-next |
+
+## Rodando localmente
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador. O projeto usa Node.js `24.x`, conforme definido em `package.json`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev          # inicia o servidor de desenvolvimento
+pnpm build        # gera a build de produção
+pnpm start        # serve a build localmente
+pnpm lint         # executa ESLint
+pnpm lint:fix     # corrige problemas de lint quando possível
+pnpm format       # formata o projeto com Prettier
+pnpm format:check # valida formatação
+```
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+```txt
+app/
+  [lang]/          # rotas internacionalizadas do portfólio e blog
+components/        # hero, navegação, skills, projetos e UI primitives
+content/blog/      # artigos MDX separados por idioma
+i18n/              # locales, dicionários e mensagens
+lib/               # utilitários e carregamento dos posts
+public/            # imagens, ícones e assets estáticos
+proxy.ts           # detecção e redirecionamento de idioma
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O deploy principal está em [techlcosta.dev](https://www.techlcosta.dev/pt), com rotas disponíveis em:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Português](https://www.techlcosta.dev/pt)
+- [English](https://www.techlcosta.dev/en)
+- [日本語](https://www.techlcosta.dev/ja)
