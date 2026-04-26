@@ -63,6 +63,14 @@ pnpm dev
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador. O projeto usa Node.js `24.x`, conforme definido em `package.json`.
 
+## Variáveis de ambiente
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+Essa variável habilita o Google Analytics 4. Quando ela não está definida, o script de analytics não é carregado.
+
 ## Scripts
 
 ```bash
