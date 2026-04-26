@@ -32,7 +32,7 @@ export default async function HomePage({ params }: LangPageProps) {
         '@id': personId,
         name: siteName,
         url: pageUrl,
-        image: absoluteUrl('/my_profile.png'),
+        image: absoluteUrl('/my_profile.jpg'),
         jobTitle: dict.hero.role,
         sameAs: socialProfiles,
         knowsAbout: ['Full stack development', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'API development', 'Automation', 'Financial market tools']
