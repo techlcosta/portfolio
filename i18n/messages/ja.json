@@ -61,6 +61,14 @@
         "actionTitle": "GitHubで開く",
         "action": "https://github.com/techlcosta/Multi-Timeframe_Analysis",
         "stack": ["Python 3.12", "MetaTrader 5", "pywebview", "React 19", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "SQLite", "PyInstaller"]
+      },
+      {
+        "title": "BackTestPanel",
+        "description": "MetaTrader 5 の Strategy Tester で、買い・売り・決済操作を外部から行うための Windows デスクトップパネルです。ローカル TCP bridge と MQL5 連携で、テストモード中の手動操作の制約を補います。",
+        "preview": "/projects/backtesting.webp",
+        "actionTitle": "GitHubで開く",
+        "action": "https://github.com/techlcosta/BacktestingPanel",
+        "stack": ["Python 3.12", "MetaTrader 5", "MQL5", "pywebview", "React 19", "TypeScript", "Vite", "Tailwind CSS 4", "TanStack Query", "TCP", "PyInstaller"]
       }
     ]
   },

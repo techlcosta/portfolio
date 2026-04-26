@@ -1,0 +1,73 @@
+export const article = {
+  title: 'Como criei um painel externo para operar no Strategy Tester do MetaTrader 5',
+  description:
+    'Como o BackTestPanel nasceu para contornar as limitações do MetaTrader 5 e permitir operações manuais no Strategy Tester com Python, React, pywebview e um bridge em MQL5.',
+  category: 'Trading Tools',
+  publishedAt: '2026-04-27'
+}
+
+# Como criei um painel externo para operar no Strategy Tester do MetaTrader 5
+
+O BackTestPanel nasceu de uma limitação bem específica do meu fluxo com o MetaTrader 5: em modo de teste, eu queria executar operações manuais, mas o Strategy Tester não oferece um fluxo nativo de compra e venda manual do jeito que eu precisava, nem facilita a criação de uma camada de interação em tempo real dentro do próprio ambiente de teste.
+
+Na prática, o que eu queria era simples. Enquanto o teste estivesse rodando, eu queria conseguir comprar, vender, fechar uma posição específica ou zerar tudo a partir de um painel próprio. Foi daí que surgiu a ideia de construir um painel desktop separado, rodando fora do MetaTrader 5, mas ainda conectado ao ambiente de teste.
+
+![Painel do BackTestPanel](/projects/panel.webp)
+
+## Por que criei esse projeto
+
+Esse projeto nasceu menos como “produto” e mais como ferramenta de uso real.
+
+Quando estou validando comportamento de indicadores, entradas e saídas, nem sempre quero deixar tudo preso a uma automação completa logo no começo. Em muitos casos, faz mais sentido testar hipóteses manualmente, reagindo ao contexto do gráfico, comparando cenários e observando como a estratégia se comporta.
+
+O problema é que o Strategy Tester do MetaTrader 5 impõe várias restrições nessa parte. A documentação do MQL5 deixa claro que, mesmo no visual mode, eventos interativos de chart, mouse e teclado não são gerados para `OnChartEvent`, e também que funções nativas de rede do MQL5, como `WebRequest()` e sockets, não são executadas dentro do tester. Então a solução precisou nascer já levando essas limitações em conta.
+
+## Como a solução funciona
+
+O BackTestPanel foi dividido em duas partes.
+
+A primeira é a aplicação desktop para Windows, feita com Python e pywebview, usando React no frontend. Ela abre um servidor TCP local em `127.0.0.1:47001`, mostra o estado atual das posições e envia os comandos de trade.
+
+A segunda é o `BridgeTcpClient`, um Expert Advisor em MQL5 que roda no Strategy Tester. Ele se conecta ao servidor local, envia snapshots das posições abertas e recebe comandos em texto para executar ações como `buy`, `sell`, `close_position` e `close_all`.
+
+Essa separação resolveu o que eu precisava: o MetaTrader 5 continua executando o teste, mas a camada de interação fica do lado de fora, em um painel mais flexível e muito mais confortável para operar manualmente durante a simulação.
+
+![Configuração do Strategy Tester com o bridge](/projects/backtesting.webp)
+
+## O que existe hoje no painel
+
+Na interface, eu quis manter tudo direto ao ponto.
+
+O painel tem blocos de operação com presets de lote, botões de compra e venda, listagem das posições abertas, fechamento individual por posição e um botão para fechar tudo. Também deixei suporte a tema claro e escuro, porque esse tipo de ferramenta costuma ficar aberta por bastante tempo e o conforto visual importa.
+
+No frontend, a aplicação usa React com TypeScript e TanStack Query. A comunicação com o backend desktop passa pela API do pywebview. As posições são consultadas com frequência curta para a tela refletir rapidamente o estado atual do tester, e os comandos invalidam a listagem assim que uma ação é enviada com sucesso.
+
+Eu gostei bastante dessa composição porque ela mantém uma experiência de app instalado sem abrir mão de uma interface web moderna.
+
+## A parte mais delicada da implementação
+
+O ponto mais sensível do projeto está justamente na ponte com o Strategy Tester.
+
+Como as funções nativas de rede do MQL5 são limitadas nesse contexto, o bridge usa `ws2_32.dll`, a biblioteca Winsock do Windows, por meio do arquivo `TCPClient.mqh`. É isso que permite criar socket, conectar, enviar e receber dados do painel externo.
+
+Por causa disso, o teste precisa estar com **Allow DLL imports** habilitado. E existe outro detalhe importante: essa abordagem funciona com agente local. Em agentes remotos, chamadas de DLL são bloqueadas por segurança. Então o artigo e o README deixam isso explícito porque é uma limitação real da arquitetura, não só um detalhe de configuração.
+
+## O que aprendi construindo isso
+
+Esse projeto reforçou algo que eu já vinha sentindo em outras ferramentas para trading: muitas vezes o desafio não é a regra de entrada ou saída, mas o ambiente em volta dela.
+
+Quando uma plataforma impõe restrições, a solução deixa de ser apenas “fazer uma interface bonita” ou “enviar um comando de compra”. É preciso pensar em integração, protocolo de comunicação, ciclo de vida da aplicação, feedback de interface e até nos limites do sistema operacional.
+
+Também foi um projeto interessante por misturar tecnologias que normalmente vivem em contextos separados: Python para orquestração desktop, React para interface, MQL5 para execução dentro do tester e TCP local como ponte entre as peças.
+
+## Por que esse projeto foi importante para mim
+
+O BackTestPanel resolveu uma necessidade prática minha: testar operações manuais em modo de simulação com um fluxo mais controlado e menos engessado.
+
+Mais do que isso, ele abriu espaço para pensar em ferramentas auxiliares ao redor do MetaTrader 5 em vez de tentar forçar tudo para dentro da própria interface do terminal. Em alguns casos, construir ao redor da plataforma acaba sendo mais eficiente do que lutar contra as limitações dela.
+
+## Código do projeto
+
+O projeto está disponível no GitHub:
+
+[github.com/techlcosta/BacktestingPanel](https://github.com/techlcosta/BacktestingPanel)
